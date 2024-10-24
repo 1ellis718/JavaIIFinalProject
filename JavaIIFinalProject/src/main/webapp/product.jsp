@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product</title>
-    
+        <link rel="stylesheet" href="CSS/styles.css">
     </head>
     <body>
    <h1>Product</h1>

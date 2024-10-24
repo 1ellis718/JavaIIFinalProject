@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>Product List</title>
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
     <h1>Products</h1>
