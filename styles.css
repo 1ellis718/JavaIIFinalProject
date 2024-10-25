@@ -1,3 +1,11 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Author     : Robbie
+*/
+
 /* Body Styling with Black Background Color */
 body {
     background-color: #000000;  /* Solid black background */
@@ -107,4 +115,78 @@ footer {
     color: #dddddd;  /* Light text for footer */
     padding: 15px 0;  /* Padding for footer */
     text-align: center;  /* Center text */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove default gaps between table cells */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Add bottom border to table rows */
+}
+
+tr:hover {
+    background-color: #f2f2f2; /* Highlight row on hover */
+}
+
+/* General button styles */
+button, input[type="submit"] {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove borders */
+    padding: 10px 20px; /* Add some padding */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Keep inline with form */
+    font-size: 14px; /* Font size */
+    margin: 4px 2px; /* Margins for spacing */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for buttons */
+button:hover, input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Specific style for Delete button */
+input[type="submit"][value="Delete"] {
+    background-color: #f44336; /* Red background */
+}
+
+input[type="submit"][value="Delete"]:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Add Product button style */
+a button {
+    background-color: #008CBA; /* Blue background */
+}
+
+a button:hover {
+    background-color: #007bb5; /* Darker blue on hover */
+}
+
+/* Form input fields */
+input[type="text"] {
+    background-color: #333; /* Dark background */
+    color: white; /* Light text */
+    border: 1px solid #666; /* Gray border */
+    padding: 8px; /* Padding for space */
+    border-radius: 4px; /* Rounded corners */
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    margin-top: 5px; /* Small margin on top */
+}
+
+/* Form input hover effect */
+input[type="text"]:focus {
+    border-color: #66ccff; /* Light blue border on focus */
+    outline: none; /* Remove default outline */
 }
