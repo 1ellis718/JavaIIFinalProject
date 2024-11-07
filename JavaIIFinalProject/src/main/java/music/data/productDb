@@ -1,0 +1,83 @@
+<%-- 
+    Document   : products
+    Created on : Nov 5, 2024, 5:31:56?PM
+    Author     : ellis
+--%>
+
+package music.data;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import music.business.Product;
+
+public class ProductDB {
+
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/DatabaseName";
+    private static final String USER = "Username";
+    private static final String PASSWORD = "Password";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(DB_URL, USER, PASSWORD);
+    }
+
+    public static List<Product> getAllProducts() {
+        List<Product> products = new ArrayList<>();
+        String sql = "SELECT * FROM Products";
+        try (Connection conn = getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Product product = new Product();
+                product.setCode(rs.getString("Code"));
+                product.setDescription(rs.getString("Description"));
+                product.setPrice(rs.getDouble("Price"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
+
+    public static void addProduct(Product product) {
+        String sql = "INSERT INTO Products (Code, Description, Price) VALUES (?, ?, ?)";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, product.getCode());
+            pstmt.setString(2, product.getDescription());
+            pstmt.setDouble(3, product.getPrice());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateProduct(Product product) {
+        String sql = "UPDATE Products SET Description = ?, Price = ? WHERE ProductCode = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, product.getDescription());
+            pstmt.setDouble(2, product.getPrice());
+            pstmt.setString(3, product.getCode());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteProduct(String productCode) {
+        String sql = "DELETE FROM Products WHERE ProductCode = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, productCode);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
